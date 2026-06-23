@@ -1,0 +1,59 @@
+:root {
+    --eggshell: #ece9d4;
+    --golden: #c78147;
+    --sand: #d5c96c;
+    --cyan: #5596a6;
+    --dusk: #32557e;
+    --indigo: #1f2042;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: var(--indigo);
+    background-color: var(--eggshell);
+}
+
+main {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+body::before {
+    content: "";
+    display: block;
+    height: 20px;
+    width: 100%;
+    background-color: var(--golden);
+    border-radius: 2px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--dusk);
+    color: var(--eggshell);
+}
+
+footer a {
+    color: var(--eggshell);
+}
+
+#thermometer {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    height: 90%;
+    width: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+#thermometer .fill {
+    position: absolute;
+    right: 4px;
+    bottom: 22px;
+    width: 12px;
+    height: 95%;
+    background-color: var(--golden);
+    border-radius: 10px;
+}
