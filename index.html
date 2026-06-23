@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/styles.css">
     <script src="assets/thermometer.js" defer></script>
+    <script src="https://server.fillout.com/embed/v1/" defer></script>
     <script>
         console.log("Loading thermometer...");
     </script>
@@ -19,15 +20,25 @@
         <!-- <img class="bg-image" aria-hidden="true" src="assets/bg-placeholder.webp"> -->
         <div aria-hidden="true">
             <div id="underwater">
-                <img src="assets/scatters/seastar.webp" style="--x: 100px; --y: 50px;" class="scatter" loading="lazy">
-                <img src="assets/scatters/seastar.webp" style="--x: 60%; --y: 50%;" class="scatter" loading="lazy">
+                <img src="assets/scatters/seastar.webp" style="--x: 100px; --y: 50px; --d: 0.1s;" class="scatter bounce"
+                    loading="lazy">
+                <img src="assets/scatters/seastar.webp" style="--x: 60%; --y: 50%; --d: 0.2s;" class="scatter bounce"
+                    loading="lazy">
+                <img src="assets/scatters/pointy.webp" style="--x: 03%; --y: 60%; --d: 0.7s;" class="scatter "
+                    loading="lazy">
+                <img src="assets/scatters/spiral.webp" style="--x: 70%; --y: 10%; --d: 0.7s;" class="scatter "
+                    loading="lazy">
             </div>
             <div id="shore">
             </div>
             <div id="beach">
-                <!-- <img src="assets/shore.webp" id="shore" /> -->
-                <!-- <div id="shore-top"></div> -->
-                <img src="assets/scatters/blueshell.webp" style="--x: 120px; --y: 300px;" class="scatter" loading="lazy">
+                <img src="assets/scatters/blueshell.webp" style="--x: 120px; --y: 300px; --r: 17deg"
+                    class="scatter bounce" loading="lazy">
+                <img src="assets/scatters/tooth.webp" style="--x: 60%; --y: 70%; --r: 17deg" class="scatter"
+                    loading="lazy">
+                <img src="assets/scatters/spiral.webp" style="--x: 90%; --y: 40%; --r: 120deg" class="scatter"
+                    loading="lazy">
+                <img src="assets/paws.svg" width="600px" height="600px" style="position: absolute; bottom: 0px; left: 10px;" />
             </div>
 
             <div id="thermometer">
@@ -46,18 +57,50 @@
                         <h2>Build something <span style="font-variation-settings: 'CASL' 0.7;">random</span>, get custom
                             dice!
                         </h2>
+                        <a id="submit-button" data-fillout-domain="forms.hackclub.com" data-fillout-id="dNnHaDGSjSus"
+                            data-fillout-embed-type="popup">Submit your build!</a>
                     </div>
                 </div>
 
-                <div style="height: 100vh">
+                <div style="height: 50vh">
+                    <div id="prizes">
+                        <figure>
+                            <img alt="Sticker pack" width="300px" height="300px" src="/assets/stickers.webp">
+                            <figcaption>After just one hour, get some custom stickers, and standard hack club ones, sent
+                                right to your doorstep!</figcaption>
+                        </figure>
+                        <figure>
+                            <img alt="Custom hack club dice" width="300px" height="300px"
+                                src="https://beardice.com/cdn/shop/files/Customizable_Wedding_Liquid-Core_Dice_Set.webp?v=1768826131&width=700">
+                            <figcaption>
+                                With 5+ hours, get a custom set of hack club dice! (design not yet finalized)
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+                <div style="height: auto">
                     <div id="faq">
                         <details>
                             <summary>Can I join?</summary>
                             <p>Anyone 18 or younger can join! You just have to build something, and track your time.</p>
                         </details>
                         <details>
-                            <summary>Who can join?</summary>
-                            <p>Any coder 18 or younger can join.</p>
+                            <summary>What counts as a project?</summary>
+                            <p>A qualifying project can be anything you want, but it must meet the following conditions:</p>
+                            <ul>
+                                <li>Open Source Forever</li>
+                                <li>Included ReadMe.md</li>
+                                <li>Fundamentally based in randomness</li>
+                                <li>Time spent recorded faithfully through Hackatime</li>
+                                <li>Accessible to any user without need of prior experience or setup</li>
+                            </ul>
+                        </details>
+                        <details>
+                            <summary>How do I track time?</summary>
+                            <p>Hack Club uses an in-house time tracking tool to measure and validate time spent on
+                                projects. Hackatime supports all major IDEs and text editors, but we also have Lapse for
+                                recording timelapses of hardware projects.
+                            </p>
                         </details>
                     </div>
                 </div>
