@@ -13,24 +13,63 @@
 </head>
 
 <body>
-    <div id="thermometer">
-        <div class="fill"></div>
+    <!-- <img src="assets/bg-placeholder.webp" width="100%" height="auto" id="bg" alt="Background Image"> -->
+    <div class="scene-wrapper">
+
+        <!-- <img class="bg-image" aria-hidden="true" src="assets/bg-placeholder.webp"> -->
+        <div aria-hidden="true">
+            <div id="underwater">
+                <img src="assets/scatters/seastar.webp" style="--x: 100px; --y: 50px;" class="scatter" loading="lazy">
+                <img src="assets/scatters/seastar.webp" style="--x: 60%; --y: 50%;" class="scatter" loading="lazy">
+            </div>
+            <div id="shore">
+            </div>
+            <div id="beach">
+                <!-- <img src="assets/shore.webp" id="shore" /> -->
+                <!-- <div id="shore-top"></div> -->
+                <img src="assets/scatters/blueshell.webp" style="--x: 120px; --y: 300px;" class="scatter" loading="lazy">
+            </div>
+
+            <div id="thermometer">
+                <div class="fill"></div>
+                <div class="bulb"></div>
+            </div>
+        </div>
+        <main>
+            <article>
+                <!-- <h1>Entropy</h1> -->
+                <div style="height: 100vh">
+                    <img src="assets/logo.webp" alt="Entropy Logo" id="logo" style="aspect-ratio: 11 / 5;"
+                        width="600px">
+
+                    <div id="cta">
+                        <h2>Build something <span style="font-variation-settings: 'CASL' 0.7;">random</span>, get custom
+                            dice!
+                        </h2>
+                    </div>
+                </div>
+
+                <div style="height: 100vh">
+                    <div id="faq">
+                        <details>
+                            <summary>Can I join?</summary>
+                            <p>Anyone 18 or younger can join! You just have to build something, and track your time.</p>
+                        </details>
+                        <details>
+                            <summary>Who can join?</summary>
+                            <p>Any coder 18 or younger can join.</p>
+                        </details>
+                    </div>
+                </div>
+            </article>
+        </main>
     </div>
-    <main>
-        <h1>Entropy</h1>
-        <img src="assets/placeholder" alt="Entropy Mascot" width="600" height="400">
-
-        <div id="signup">
-
-        </div>
-
-        <div id="faq">
-
-        </div>
-    </main>
     <footer>
-        <p>Made with ❤️ by <a target="_blank" href="https://arcades.agency">Arcade</a> & <a target="_blank" href="https://sundial.city">Nick</a> for <a
-                target="_blank" href="https://hackclub.com">Hack Club</a></p>
+        <p>Made with ❤️ by <a target="_blank" href="https://arcades.agency">Arcade</a> & <a target="_blank"
+                href="https://sundial.city">Nick</a> for <a target="_blank" href="https://hackclub.com">Hack Club</a>
+        </p>
+        <br>
+        <p>Connect with us in <code id="slack-channel">#entropy-ysws</code> on Slack!</p>
     </footer>
 </body>
 
