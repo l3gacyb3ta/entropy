@@ -124,10 +124,17 @@ footer a {
 #logo {
     display: block;
     margin: 0 auto;
-    width: min(600px, 92vw);
+    width: min(800px, 92vw);
     height: auto;
     margin-top: 10dvh;
     filter: drop-shadow(0px 0px 10px color-mix(in srgb, var(--indigo) 30%, transparent));
+}
+
+#jerboa-popup {
+    position: absolute;
+    z-index: 10;
+    transform: translate(-50%, -50%);
+    display: none;
 }
 
 .scatter {
@@ -217,7 +224,7 @@ footer a {
     padding: 10px;
     background-color: var(--cyan);
     cursor: pointer;
-    background-image: url('/assets/sand-texture.png');
+    /* background-image: url('/assets/sand-texture.png'); */
     background-blend-mode: saturation;
     color: var(--eggshell);
 

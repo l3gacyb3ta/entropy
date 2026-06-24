@@ -1,5 +1,5 @@
 // keep the initial position away from the very edges
-const EDGE_PADDING = 50; // pixels from each edge
+const EDGE_PADDING = 100; // pixels from each edge
 let position = [
     EDGE_PADDING + Math.random() * (window.innerWidth - EDGE_PADDING * 2),
     EDGE_PADDING + Math.random() * (window.innerHeight - EDGE_PADDING * 2)
@@ -26,12 +26,21 @@ if (!isMobile) {
 
         let temperature = 1 - (distance / maxDistance);
         if (temperature > 0.97) {
-            alert("JERBOA");
+            console.log(event);
+            const popup = document.getElementById("jerboa-popup");
 
-            position = [
-                EDGE_PADDING + Math.random() * (window.innerWidth - EDGE_PADDING * 2),
-                EDGE_PADDING + Math.random() * (window.innerHeight - EDGE_PADDING * 2)
-            ];
+            
+            if (!popup.src) {
+                popup.style.left = `${event.pageX}px`;
+                popup.style.top =  `${event.pageY}px`;
+                popup.style.display = "block";
+            }
+            popup.src = "/assets/jerboa.gif";
+            
+            // position = [
+            //     EDGE_PADDING + Math.random() * (window.innerWidth - EDGE_PADDING * 2),
+            //     EDGE_PADDING + Math.random() * (window.innerHeight - EDGE_PADDING * 2)
+            // ];
 
         };
     });
