@@ -1,320 +1,57 @@
 @import url('https://fonts.googleapis.com/css2?family=Recursive:wght,CASL,CRSV@300..800,0..1,0&display=swap');
 
 :root {
-    --eggshell: #ece9d4;
-    --eggshell-dark: #ECE9D5;
-    --golden: #c78147;
-    --sand: #d5c96c;
+    --white: #ece9d4;
+    --light-gray: #E2D2B5;
+    --orange: #c78147;
+    --yellow: #d5c96c;
     --cyan: #5596a6;
-    --dusk: #32557e;
-    --indigo: #1f2042;
+    --blue: #32557e;
+    --black: #1f2042;
+}
+
+a { color: var(--blue); }
+a:active, a:hover { color: var(--orange); }
+img { width: 100%; height: auto; }
+p, figure { margin: 0; padding: 1rem 0; }
+p:first-child { padding-top: 0;}
+p:last-child { padding-bottom: 0;}
+ul { margin: 0; padding: 1rem 0 1rem 1rem; }
+h2 {
+    margin: 0; padding: 1rem 0; font-size: 2.5em; text-align: center;
+    font-variation-settings: "CASL" 0.5, "wght" 800;
 }
 
 body {
+    padding: 0; margin: 0;
     font-family: 'Recursive', Arial, sans-serif;
     font-variation-settings: "CASL" 0.25, "wght" 500;
-
-    color: var(--indigo);
-    background-blend-mode: overlay;
+    background-color: var(--white); color: var(--black);
 }
 
-figure {
-    background-color: var(--indigo);
-    padding: 10px;
-    border-radius: 5px;
-    color: var(--eggshell);
-    border: solid 1px var(--cyan);
-    max-width: 300px;
-}
-
-figure img {
-    border-radius: 2px;
-    margin-bottom: 10px;
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
-figure figcaption {
-
-}
-
-.scene-wrapper {
-    position: relative;
-    width: 100%;
-    overflow-x: clip;
-}
-
-#underwater {
-    width: 100%;
-    height: 100dvh;
-    background-color: var(--cyan);
-    z-index: -1;
-    background-image: url('/assets/caustics.webp');
-    background-blend-mode: soft-light;
-}
-
-#shore {
-    /* Floats on the transtion between underwater and beach */
-    width: 100%;
-    height: 250px;
-    /* transform: translateY(-200px); */
-    margin-top: -220px;
-    /* background-image: url('/assets/shore.webp'); */
-    background-image:
-        url('/assets/shore.webp'),
-        url('/assets/sand-tex.webp');
-    background-blend-mode: overlay;
-
-    -webkit-mask-image: url('/assets/shore.webp');
-    mask-image: url('/assets/shore.webp');
-    /* -webkit-mask-size: cover;
-    mask-size: cover; */
-    -webkit-mask-mode: alpha;
-    mask-mode: alpha;
-}
-
-#beach {
-    width: 100%;
-    min-height: 200dvh;
-    background-color: var(--eggshell-dark);
-    background-image: url('/assets/sand-tex.webp');
-    background-blend-mode: overlay;
-    z-index: -1;
-}
-
-h2 {
-    font-size: 1.5rem;
-    font-weight: 700;
-}
-
-main>article {
-    max-width: 900px;
-    margin: 0 auto;
+header {
+    background-image: linear-gradient(to top, var(--cyan), var(--blue));
+    background-blend-mode: overlay; position: relative;
+    h1 {
+        margin: 0 auto; padding: 2rem 1rem 0; text-align: center;
+        img { max-width: 25rem; }
+    }
+    &::after {
+        content: ""; width: 100%; height: 6rem;
+        display: block;
+        
+        background-image: url("shore.png");
+        background-size: auto 6rem; background-repeat: repeat-x;
+    }
 }
 
 main {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    /* height: 100%; */
-}
-
-body::before {
-    content: "";
-    display: block;
-    height: 20px;
-    width: 100%;
-    background-color: var(--golden);
-    border-radius: 2px;
+    background-image: url("sand.webp"); background-color: var(--white);
+    background-blend-mode: overlay;
+    padding: 1rem 2rem; 
 }
 
 footer {
-    text-align: center;
-    padding: 20px;
-    background-color: var(--dusk);
-    color: var(--eggshell);
-}
-
-footer a {
-    color: var(--eggshell);
-}
-
-#logo {
-    display: block;
-    margin: 0 auto;
-    width: min(800px, 92vw);
-    height: auto;
-    margin-top: 10dvh;
-    filter: drop-shadow(0px 0px 10px color-mix(in srgb, var(--indigo) 30%, transparent));
-}
-
-#jerboa-popup {
-    position: absolute;
-    z-index: 10;
-    transform: translate(-50%, -50%);
-    display: none;
-}
-
-.scatter {
-    position: relative;
-    left: var(--x, 0);
-    top: var(--y, 0);
-    animation-delay: var(--d, 0s);
-    transform: rotate(var(--r, 0deg));
-    filter: drop-shadow(0px 0px 2px color-mix(in srgb, var(--indigo) 30%, transparent));
-}
-
-.bounce {
-    animation: bounce 1s cubic-bezier(0.45, 0, 0.55, 1) alternate infinite;
-
-    @media (prefers-reduced-motion: reduce) {
-        animation: none;
-    }
-}
-
-@keyframes bounce {
-    0% {
-        transform: rotate(-15deg);
-    }
-
-    100% {
-        transform: rotate(15deg);
-    }
-}
-
-#cta {
-    /* align itself to end of parent */
-    text-align: center;
-    margin-top: 35%;
-}
-
-#cta h2 {
-    color: var(--eggshell);
-    margin-bottom: 3rem;
-    font-size: 3rem;
-    filter: drop-shadow(0px 0px 10px color-mix(in srgb, var(--indigo) 30%, transparent));
-}
-
-
-#submit-button {
-    background-color: var(--golden);
-    border: solid 1px var(--sand);
-    font-size: 2.1rem;
-    padding: 10px 20px;
-    border-radius: 10px;
-    color: var(--eggshell);
-    cursor: pointer;
-    display: inline-block;
-    text-decoration: none;
-    max-width: 100%;
-    box-sizing: border-box;
-    filter: drop-shadow(0px 0px 10px color-mix(in srgb, var(--indigo) 30%, transparent));
-}
-
-#submit-button:hover {
-    filter: drop-shadow(0px 0px 5px color-mix(in srgb, var(--indigo) 30%, transparent));
-}
-
-#prizes {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 10px;
-}
-
-#paws {
-    width: 600px;
-    max-width: 55%;
-    height: auto;
-}
-
-#faq {
-    /* grid of details elements */
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 10px;
-}
-
-#faq details {
-    margin-bottom: 10px;
-    /* border: 1px solid var(--dusk); */
-    box-shadow: inset 0 0px 10px 5px color-mix(in srgb, var(--dusk) 5%, transparent);
-    border-radius: 5px;
-    padding: 10px;
     background-color: var(--cyan);
-    cursor: pointer;
-    /* background-image: url('/assets/sand-texture.png'); */
-    background-blend-mode: saturation;
-    color: var(--eggshell);
-
-    max-height: 25px;
-}
-
-#faq summary {
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
-#faq details[open] {
-    background-color: var(--dusk);
-    cursor: default;
-    max-height: 100%;
-}
-
-
-#thermometer {
-    position: fixed;
-    right: 20px;
-    top: 20px;
-    height: 90%;
-    width: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    z-index: 100;
-}
-
-#thermometer .fill {
-    position: absolute;
-    right: 4px;
-    bottom: 22px;
-    width: 12px;
-    height: 95%;
-    background-color: var(--golden);
-    border-radius: 10px;
-    z-index: 101;
-}
-
-#thermometer .bulb {
-    position: absolute;
-    bottom: 0;
-    left: -10px;
-    width: 30px;
-    height: 30px;
-    background-color: var(--golden);
-    border-radius: 50%;
-    border: 5px solid #fff;
-    z-index: 100;
-}
-
-
-
-@media (max-width: 600px) {
-    #thermometer {
-        display: none;
-    }
-
-    main > article {
-        padding: 0 1rem;
-        box-sizing: border-box;
-    }
-
-    #submit-button {
-        font-size: 1.4rem;
-        display: block;
-        width: 100%;
-        text-align: center;
-    }
-
-    #cta {
-        margin-top: 15%;
-    }
-
-    #cta h2 {
-        font-size: 1.1rem;
-    }
-
-    #prizes {
-        grid-template-columns: 1fr;
-    }
-
-    figure {
-        max-width: 100%;
-    }
-
-    footer {
-        word-break: break-word;
-        overflow-wrap: break-word;
-        padding: 20px 1rem;
-    }
+    padding: 1rem 2rem;
 }
