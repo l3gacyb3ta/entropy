@@ -14,24 +14,29 @@ a { color: var(--blue); }
 a:active, a:hover { color: var(--orange); }
 img { width: 100%; height: auto; }
 p, figure { margin: 0; padding: 1rem 0; }
-p:first-child { padding-top: 0;}
-p:last-child { padding-bottom: 0;}
+p:first-child, #faq>details:first-child { padding-top: 0;}
+p:last-child, #faq>detail:last-child { padding-bottom: 0;}
 ul { margin: 0; padding: 1rem 0 1rem 1rem; }
 h2 {
     margin: 0; padding: 1rem 0; font-size: 2.5em; text-align: center;
     font-variation-settings: "CASL" 0.5, "wght" 800;
+    img { max-height: 10rem; width: auto; max-width: 100%; height: auto; }
 }
 
 body {
     padding: 0; margin: 0;
     font-family: 'Recursive', Arial, sans-serif;
     font-variation-settings: "CASL" 0.25, "wght" 500;
-    background-color: var(--white); color: var(--black);
+    background-color: var(--light-gray); color: var(--black);
 }
 
 header {
     background-image: linear-gradient(to top, var(--cyan), var(--blue));
     background-blend-mode: overlay; position: relative;
+    #scatters {
+        position: absolute;
+        img { width: 2rem; height: auto; }
+    }
     h1 {
         margin: 0 auto; padding: 2rem 1rem 0; text-align: center;
         img { max-width: 25rem; }
@@ -39,16 +44,27 @@ header {
     &::after {
         content: ""; width: 100%; height: 6rem;
         display: block;
-        
         background-image: url("shore.png");
         background-size: auto 6rem; background-repeat: repeat-x;
     }
 }
 
 main {
-    background-image: url("sand.webp"); background-color: var(--white);
+    background-image: url("sand.webp"), linear-gradient(to top, var(--light-gray), var(--white));
     background-blend-mode: overlay;
     padding: 1rem 2rem; 
+    #faq {
+        details {
+            background-color: var(--cyan);
+            border-radius: 1rem; margin: 1rem 0;
+            summary {
+                background-color: var(--blue); color: var(--white);
+                padding: 1rem 2rem; border-radius: 1rem;
+            }
+            p { padding: 1rem; }
+            ul { padding: 1rem 1rem 1rem 2rem;}
+        }
+    }
 }
 
 footer {
