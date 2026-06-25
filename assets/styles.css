@@ -31,21 +31,35 @@ body {
 }
 
 header {
-    background-image: linear-gradient(to top, var(--cyan), var(--blue));
-    background-blend-mode: overlay; position: relative;
-    #scatters {
-        position: absolute;
-        img { width: 2rem; height: auto; }
-    }
+    background-image: url("water.png"), linear-gradient(to top, var(--cyan), var(--blue));
+    background-size: 16rem auto; background-blend-mode: overlay; text-align: center;
+    display: flex; align-items: center; flex-direction: column; gap: 1rem;
     h1 {
-        margin: 0 auto; padding: 2rem 1rem 0; text-align: center;
+        margin: 0 auto; padding: 2rem 1rem 0;
         img { max-width: 25rem; }
+    }
+    p {
+        padding: 1rem; max-width: 20rem; margin: 0 1rem;
+        background-color: var(--white); border-radius: 2rem;
+        position: relative;
+        &::before {
+            content: ""; display: block; position: absolute;
+            width: 0; height: 0; top: -1.5rem; left: calc(50% - 1rem);
+            border-left: 1rem solid transparent;
+            border-right: 1rem solid transparent;
+            border-bottom: 1.5rem solid var(--white);
+        }
+    }
+    a {
+        background-color: var(--yellow); padding: 1rem 2rem; margin: 0 1rem; display: block;
+        border-radius: 2rem; max-width: 10rem; border: 2px solid var(--yellow);
+        &:hover, &:active { background-color: var(--blue); color: var(--white); border-color: var(--cyan);}
     }
     &::after {
         content: ""; width: 100%; height: 6rem;
         display: block;
         background-image: url("shore.png");
-        background-size: auto 6rem; background-repeat: repeat-x;
+        background-size: auto 100%; background-repeat: repeat-x;
     }
 }
 
@@ -53,6 +67,17 @@ main {
     background-image: url("sand.webp"), linear-gradient(to top, var(--light-gray), var(--white));
     background-blend-mode: overlay;
     padding: 1rem 2rem; 
+    h2>img { max-height: 7rem;}
+    #scatters {
+        position: relative; height: 3rem; top: -1rem; max-width: 20rem; margin: auto; 
+        img { position: absolute; width: 3.5rem; height: auto; }
+        img:first-child { rotate: -15deg; }
+        img:nth-child(2) { display: none; width: 2.5rem; left: 3rem; top: 2rem; rotate: 5deg; }
+        img:nth-child(3) { width: 2.5rem; right: 3rem; top: 3rem; rotate: 60deg; }
+        img:nth-child(4) { display: none; width: 3rem; left: calc(50% - 1.25rem);  }
+        img:last-child { right: 0; }
+    }
+    #ideas>h2>img { max-height: 10rem;}
     #faq {
         details {
             background-color: var(--cyan);
@@ -70,4 +95,38 @@ main {
 footer {
     background-color: var(--cyan);
     padding: 1rem 2rem;
+}
+
+/* Mobile large */
+@media screen and (min-width: 18rem) {
+    main>#scatters {
+        img:nth-child(2), img:nth-child(4) { display: block; }
+    }
+}
+/* Tablet view */
+@media screen and (min-width: 40rem) {
+    header {
+        padding-top: 2rem;
+        h1>img { max-width: 30rem;}
+        p { max-width: 25rem; margin-bottom: 1rem;}
+        &::after { height: 8rem; }
+    }
+    main {
+        h2>img { max-height: 10rem;}
+        #scatters {
+            max-width: 30rem; height: 4rem;
+            img { width: 4rem; }
+            img:nth-child(2) { width: 3rem; left: 4rem; }
+            img:nth-child(3) { width: 3rem; right: 5rem; }
+            img:nth-child(4) { width: 4rem; top: -0.5rem;}
+            
+        }
+        #ideas>h2>img { max-height: 12rem;}
+        #faq {
+            details { width: 35rem; margin-left: auto; margin-right: auto; }
+        }
+    }
+}
+/* Desktop view */
+@media screen and (min-width: 67rem) {
 }
