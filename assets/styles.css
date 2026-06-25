@@ -113,6 +113,7 @@ footer {
 /* Tablet view */
 @media screen and (min-width: 40rem) {
     header {
+        background-size: 20rem auto;
         padding-top: 2rem;
         h1>img { max-width: 30rem;}
         p { max-width: 25rem; margin-bottom: 1rem;}
@@ -144,6 +145,7 @@ footer {
 /* Desktop view */
 @media screen and (min-width: 67rem) {
     header {
+        background-size: 25rem auto;
         padding-top: 3rem;
         h1>img { max-width: 40rem;}
         &::after { height: 10rem; }
