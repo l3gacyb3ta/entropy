@@ -77,6 +77,12 @@ main {
         img:nth-child(4) { display: none; width: 3rem; left: calc(50% - 1.25rem);  }
         img:last-child { right: 0; }
     }
+    #prizes>div {display: flex; gap: 1rem; flex-direction: column;}
+    #prizes figure {
+        text-align: center;
+        img { max-width: 10rem; }
+    }
+    #ideas>ul { max-width: 30rem; margin: auto;}
     #ideas>h2>img { max-height: 10rem;}
     #faq {
         details {
@@ -102,6 +108,7 @@ footer {
     main>#scatters {
         img:nth-child(2), img:nth-child(4) { display: block; }
     }
+    #ideas>p {max-width: 40rem; margin: auto; }
 }
 /* Tablet view */
 @media screen and (min-width: 40rem) {
@@ -121,12 +128,40 @@ footer {
             img:nth-child(4) { width: 4rem; top: -0.5rem;}
             
         }
+        #prizes {
+            >div { flex-direction: row; justify-content: center; }
+            figure>img { max-width: 15rem;}
+        }
+        #ideas>ul { max-width: 30rem;}
         #ideas>h2>img { max-height: 12rem;}
+        #faq>h2>img { max-height: 10rem;}
         #faq {
             details { width: 35rem; margin-left: auto; margin-right: auto; }
         }
     }
+    footer { text-align: center; padding: 2rem; }
 }
 /* Desktop view */
 @media screen and (min-width: 67rem) {
+    header {
+        padding-top: 3rem;
+        h1>img { max-width: 40rem;}
+        &::after { height: 10rem; }
+    }
+    main {
+        h2>img { max-height: 15rem;}
+        #scatters {
+            max-width: 40rem; height: 5rem;
+            img { width: 5rem; }
+            img:nth-child(2) { width: 4rem; left: 5rem; }
+            img:nth-child(3) { width: 4rem; right: 6rem; }
+            img:nth-child(4) { width: 5rem; top: -1rem;}
+            
+        }
+        #ideas>h2>img { max-height: 14rem;}
+        #faq>h2>img { max-height: 12rem;}
+        #faq {
+            details { width: 35rem; margin-left: auto; margin-right: auto; }
+        }
+    }
 }
