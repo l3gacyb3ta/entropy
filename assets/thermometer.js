@@ -17,7 +17,7 @@ if (!isMobile) {
         distance = Math.sqrt(Math.pow(event.clientX - position[0], 2) + Math.pow(event.clientY - position[1], 2));
 
         let temperature = 1 - (distance / maxDistance);
-        // console.log(`Temperature: ${temperature.toFixed(2)}`);
+        console.log(`Temperature: ${temperature.toFixed(2)}`);
         fill.style.height = `${temperature * 95}%`;
     });
 
@@ -34,8 +34,14 @@ if (!isMobile) {
                 popup.style.left = `${event.pageX}px`;
                 popup.style.top =  `${event.pageY}px`;
                 popup.style.display = "block";
+                popup.src = "/assets/hay-peek-once.gif";
+            } else {
+                popup.src = "/assets/hay-smile.png";
+
+                setTimeout(() => {
+                    popup.src = "/assets/hay-dumbass.png";
+                }, 500);
             }
-            popup.src = "/assets/jerboa.gif";
             
             // position = [
             //     EDGE_PADDING + Math.random() * (window.innerWidth - EDGE_PADDING * 2),
@@ -46,24 +52,6 @@ if (!isMobile) {
     });
 }
 
-document.getElementById("slack-channel").addEventListener("click", (e) => {
-    const target = e.currentTarget;
-
-    if (typeof target.select === "function") {
-        target.select();
-        return;
-    }
-
-    const selection = window.getSelection();
-    if (!selection) {
-        return;
-    }
-
-    const range = document.createRange();
-    range.selectNodeContents(target);
-    selection.removeAllRanges();
-    selection.addRange(range);
-});
 
 
 // const bg = document.querySelector('.bg-image');
