@@ -30,6 +30,14 @@ body {
     background-color: var(--light-gray); color: var(--black);
 }
 
+main p {
+    filter: drop-shadow(0px 0px 2px var(--white));
+}
+
+main li {
+    filter: drop-shadow(0px 0px 2px var(--white));
+}
+
 header {
     background-image: url("water.png"), linear-gradient(to top, var(--cyan), var(--blue));
     background-size: 16rem auto; background-blend-mode: overlay; text-align: center;
@@ -100,8 +108,57 @@ main {
 
 footer {
     background-color: var(--cyan);
+    color: var(--light-gray);
     padding: 1rem 2rem;
 }
+
+footer a {
+    color: var(--white)
+}
+
+#thermometer {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    height: 90%;
+    width: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    z-index: 100;
+}
+
+#thermometer .fill {
+    position: absolute;
+    right: 4px;
+    bottom: 22px;
+    width: 12px;
+    height: 95%;
+    background-color: var(--orange);
+    border-radius: 10px;
+    z-index: 101;
+}
+
+#thermometer .bulb {
+    position: absolute;
+    bottom: 0;
+    left: -10px;
+    width: 30px;
+    height: 30px;
+    background-color: var(--orange);
+    border-radius: 50%;
+    border: 5px solid #fff;
+    z-index: 100;
+}
+
+#jerboa-popup {
+    position: absolute;
+    z-index: 10;
+    transform: translate(-50%, -50%);
+    display: none;
+    height: 200px !important;
+    width: 200px !important;
+}   
+
 
 /* Mobile large */
 @media screen and (min-width: 18rem) {
